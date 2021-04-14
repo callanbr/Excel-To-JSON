@@ -1,9 +1,11 @@
 import React from 'react';
+import ExcelReader from './Excel/ExcelReader';
 
 export default function App() {
   return (
     <div>
-      <h1>React Boilerplate Works!</h1>
+      <h1>Excel To JSON</h1>
+      <ExcelReader />
     </div>
   );
 }

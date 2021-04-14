@@ -1,5 +1,5 @@
 {
-  "name": "reactboilerplate",
+  "name": "excel-to-json",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "xlsx": "0.13.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
