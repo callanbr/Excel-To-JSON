@@ -36,6 +36,7 @@ class ExcelReader extends Component {
       file: {},
       data: [],
       cols: [],
+      result: [],
     };
     this.handleFile = this.handleFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -65,7 +66,8 @@ class ExcelReader extends Component {
       const data = XLSX.utils.sheet_to_json(ws);
       /* Update state */
       this.setState({ data: data, cols: make_cols(ws['!ref']) }, () => {
-        console.log(JSON.stringify(this.state.data, null, 2));
+        this.setState({ result: JSON.stringify(this.state.data, null, 2) });
+        // console.log(JSON.stringify(this.state.data, null, 2));
       });
     };
 
@@ -81,6 +83,7 @@ class ExcelReader extends Component {
       <div>
         <label htmlFor='file'>Upload an excel sheet to convert to JSON</label>
         <br />
+        <br />
         <input
           type='file'
           className='form-control'
@@ -89,7 +92,21 @@ class ExcelReader extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <input type='submit' value='Log JSON' onClick={this.handleFile} />
+        <br />
+        <input type='submit' value='Show JSON' onClick={this.handleFile} />
+        <hr />
+        <h3>Result:</h3>
+        <pre
+          style={{
+            width: 'auto',
+            border: '2px solid black',
+            borderRadius: '5px',
+            margin: 'auto 25px',
+            padding: '10px',
+          }}
+        >
+          {this.state.result == '' ? 'No Output' : this.state.result}
+        </pre>
       </div>
     );
   }
